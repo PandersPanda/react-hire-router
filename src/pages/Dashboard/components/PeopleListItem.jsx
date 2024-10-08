@@ -10,6 +10,7 @@ function PeopleListItem(props) {
         <Link to={profileUrl}>{person.name.first} {person.name.last}</Link>
       </h3>
       {person.wage && <p>Wage: £{person.wage}</p>}
+      {person.wage && <Link to={profileUrl}><button>Edit</button></Link>}
     </li>
   )
 }

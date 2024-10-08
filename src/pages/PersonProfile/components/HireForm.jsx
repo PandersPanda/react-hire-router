@@ -7,10 +7,6 @@ function HireForm({ person, setHired }) {
 
   function handleSubmit(event) {
     event.preventDefault()
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault()
     if(wage > 0){
       person.wage = wage
       setHired(person)
@@ -28,7 +24,7 @@ function HireForm({ person, setHired }) {
         onChange={e => setWage(e.target.value)}
         value={wage}
       />
-      <button type="submit">Hire</button>
+      <button type="submit"><b>{(person.wage > 0) ? 'Edit' : 'Hire'}</b></button>
     </form>
   )
 }

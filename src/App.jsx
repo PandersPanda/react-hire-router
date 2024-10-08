@@ -21,7 +21,12 @@ export default function App() {
   }, [])
 
   function setHired(person) {
+    if(hiredPeople.includes(person)){
+      return
+    }
     setHiredPeople([...hiredPeople, person])
+    const newPeople = people.filter((p) => p !== person)
+    setPeople(newPeople)
   }
 
   return (
@@ -37,7 +42,7 @@ export default function App() {
         </nav>
         <Routes>
           <Route path="/" element={<Dashboard people={people} hiredPeople={hiredPeople}/>}/>
-          <Route path="/view/:id" element={<PersonProfile people={people} setHired={setHired} />}/>
+          <Route path="/view/:id" element={<PersonProfile people={people.concat(hiredPeople)} setHired={setHired} />}/>
         </Routes>
       </header>
     </>
